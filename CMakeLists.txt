@@ -7,3 +7,6 @@ add_executable(LeetCodeDailyPractice
         BinarySearch.cpp BinarySearch.h
         main.cpp
 )
+
+# for misc tests
+add_executable(test tests.cpp)
