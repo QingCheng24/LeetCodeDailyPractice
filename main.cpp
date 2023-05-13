@@ -11,12 +11,22 @@ void test64(Solution &solution) {
     }
 }
 
+void test34(Solution &solution) {
+    vector<int> nums = {5, 7, 7, 8, 8, 10};
+    int target = 8;
+    auto res = solution.searchRange(nums, target);
+
+    cout << endl << endl << "test34: " << endl;
+    for (const auto e: res)
+        cout << e << ", ";
+}
 
 int main() {
     Solution solution;
 
     test64(solution);
 
+    test34(solution);
 
     return 0;
 }

@@ -1,8 +1,7 @@
 #include "BinarySearch.h"
 
 // 69
-int Solution::mySqrt(int x)
-{
+int Solution::mySqrt(int x) {
 
     if (x == 0) { return x; }
 
@@ -26,4 +25,38 @@ int Solution::mySqrt(int x)
         }
     }
     return high;
+}
+
+vector<int> Solution::searchRange(vector<int> &nums, int target) {
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    int first = left;
+
+    left = 0;
+    right = nums.size() - 1;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (nums[mid] <= target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    int second = right;
+
+    if (first > second) {
+        return vector<int>{-1, -1};
+    } else {
+        return vector<int>{first, second};
+    }
 }
