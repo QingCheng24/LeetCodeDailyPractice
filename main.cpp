@@ -21,12 +21,28 @@ void test34(Solution &solution) {
         cout << e << ", ";
 }
 
+void test33(Solution &solution) {
+    vector<int> nums = {4, 5, 6, 7, 0, 1, 2};
+    int target = 0;
+    auto res = solution.search33(nums, target);
+
+    cout << endl << endl << "test33: " << endl;
+    cout << res << endl;
+
+    res = solution.search33(nums, target);
+
+    cout << endl << endl << "test33_v2: " << endl;
+    cout << res << endl;
+}
+
 int main() {
     Solution solution;
 
-    test64(solution);
+//    test64(solution);
+//
+//    test34(solution);
 
-    test34(solution);
+    test33(solution);
 
     return 0;
 }
