@@ -17,4 +17,6 @@ public:
     int search33(vector<int> &nums, int target);
 
     int search33_v2(vector<int> &nums, int target);
+
+    bool search81(vector<int>& nums, int target);
 };

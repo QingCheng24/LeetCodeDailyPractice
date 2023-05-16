@@ -130,3 +130,55 @@ int Solution::search33_v2(vector<int> &nums, int target) {
 
     return -1;
 }
+
+bool Solution::search81(vector<int>& nums, int target) {
+
+    int l = 0;
+    int r = nums.size() - 1;
+
+    while (l <= r)
+    {
+        int mid = (l + r) / 2;
+
+        if (nums[mid] == target)
+        {
+            return true;
+        }
+
+        // key difference. Resolve the confusion of the order
+        if (nums[mid] == nums[l] and nums[mid] == nums[r])
+        {
+            l++;
+            r--;
+        }
+        else
+        {
+            // = is required to solve [3, 1]-like cases;
+            if (nums[mid] >= nums[l])
+            {
+                if (nums[mid] > target and target >= nums[l])
+                {
+                    r = mid - 1;
+                }
+                else
+                {
+                    l = mid + 1;
+                }
+            }
+            else
+            {
+                if (target <= nums[r] and target > nums[mid])
+                {
+                    l = mid + 1;
+                }
+                else
+                {
+                    r = mid - 1;
+                }
+            }
+        }
+
+    }
+
+    return false;
+}
